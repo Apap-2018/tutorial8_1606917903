@@ -13,12 +13,6 @@
 
     <div class="container-fluid">
         <h2 th:text=" 'Hello ' + ${#httpServletRequest.remoteUser} + ' ! '">Login as</h2>
-        <div th:if="${msg != null}">
-            <div class="alert green">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                <p th:text="${msg}"></p>
-            </div>
-        </div>
         <div class="row">
 			<div class="col-md-6">
 				<div class="card">
@@ -82,3 +76,9 @@
 </body>
 
 </html>
+<script th:inline="javascript">
+var message = /*[[${message}]]*/
+if  (message != null){
+	alert(message);
+}
+</script>
